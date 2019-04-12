@@ -23,12 +23,12 @@
           <!-- input tags -->
           <form id="train-form" class="row col-12">
             <div class="col-6">
-              <input class="form-control" type="text" placeholder="Train Name">
-              <input class="form-control" type="text" placeholder="Destination">
+              <input id="trainName-input"class="form-control" type="text" placeholder="Train Name">
+              <input id="destination-input" class="form-control" type="text" placeholder="Destination">
             </div>
             <div class="col-6">
-              <input class="form-control" type="text" placeholder="Train Arrival">
-              <input class="form-control" type="text" placeholder="Frequency">
+              <input id="trainArrival-input" class="form-control" type="text" placeholder="Train Arrival">
+              <input id="frequency-input" class="form-control" type="number" placeholder="Frequency">
             </div>
           </form>
         </div>
@@ -52,7 +52,9 @@
               <th scope="col">Mins Away</th>
             </tr>
           </thead>
-
+          <tbody>
+            <!-- content goes here -->
+          </tbody>
         </table>
 
 

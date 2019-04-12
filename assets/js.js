@@ -12,19 +12,22 @@
 
 var database = firebase.database();
 
+// create variable for data and put all data together. use {} to hold set of info 
+
+
 // Create function to store train info
 $("#train-form").on("submit", function(event) {
   event.preventDefault();
-
-  // create variable for data and put all data together. use {} to hold set of info 
   var trainData = {
     
     trainName: $("#trainName-input").val().trim(),
     destination: $("#destination-input").val().trim(),
     trainArrival: $("#trainArrival-input").val().trim(),
     frequency: $("#frequency-input").val().trim()
-
+  
   }
+  
+  
 console.log(trainData)
 
 // save info to firebase
@@ -36,21 +39,22 @@ database.ref().on("child_added", function (childSnapshot){
 
 
 var trainDa = childSnapshot.val();
-console.log(childSnapshot.val())
 
-var trainArrivalTime = dateConverted.format("MMMM Do YYYY [at] hh:mm:ss A Z");
+var dateConverted = moment(trainDa.trainArrival, "HH:mm"). subtract(1, "year");
 
-var frequencyTime = moment ()
+
+
+var frequencyTime = moment ();
 
 var $tr = $("<tr>")
 
 var $tdtrainName = $("<td>").text(trainDa.trainName);
 var $tddestination = $("<td>").text(trainDa.destination);
-var $trainArrival = $("<td>").text(trainArrivalTime);
-var $tdfrequency = $("<td>").text(frequencyTime);
+var $tdtrainArrival = $("<td>").text(trainDa.trainArrivalTime);
+var $tdfrequency = $("<td>").text(trainDa.frequencyTime);
 
 
-$tr.append($tdtrainName, $tddestination, $trainArrival, $tdfrequency)
+$tr.append($tdtrainName, $tddestination, $tdtrainArrival, $tdfrequency)
 
 $("tbody").append($tr)
 
